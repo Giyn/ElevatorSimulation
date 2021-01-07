@@ -10,7 +10,7 @@
 
 /* ²Ù×÷×´Ì¬Âë */
 typedef enum {
-    OK = 1,
+    SUCCESS = 1,
     FAILED = 0,
     INFEASIBLE = -1,
     OVERFLOW = -2
