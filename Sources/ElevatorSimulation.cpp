@@ -27,3 +27,17 @@ Status NobodyIn(Elevator e) {
     else if (e->state == GoingDown && FloorWaitQueue[1][e->floor].WaitingPassengerNum == 0) return SUCCESS;
     else return FAILED;
 }
+
+/**
+ * 没有人离开电梯
+ *
+ * @param[in]  e: elevator structure
+ * @return  the operation status, SUCCESS is 1, FAILED is 0
+ */
+Status NobodyOut(Elevator e) {
+    /* 没有乘客坐该楼层的电梯 */
+    if (!e->CallCar[e->floor]) return SUCCESS;
+    else if (e->state == GoingUp && StackEmpty(e->Stack[e->floor]) == SUCCESS) return SUCCESS;
+    else if (e->state == GoingDown && StackEmpty(e->Stack[e->floor]) == SUCCESS) return SUCCESS;
+    else return FAILED;
+}
