@@ -61,3 +61,26 @@ Status EnQueue(PassengerWaitingQueueNode &Q, ElemType e) {
 
     return SUCCESS;
 }
+
+/**
+ * 出队
+ *
+ * @param[in]  Q: passenger waiting queue
+ * @param[in]  e: a variable to receive passenger waiting queue element
+ * @return  the operation status, SUCCESS is 1, FAILED is 0
+ */
+Status DeQueue(PassengerWaitingQueueNode &Q, ElemType &e) {
+    if (Q.front == Q.rear) return FAILED;
+
+    PassengerQueuePtr p;
+    /* 绕过头结点 */
+    p = Q.front->next;
+    e = p->data;
+    Q.front->next = p->next;
+
+    if (Q.rear == p) Q.rear = Q.front;
+    delete p;
+    Q.WaitingPassengerNum--;
+
+    return SUCCESS;
+}

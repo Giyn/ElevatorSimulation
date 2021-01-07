@@ -32,4 +32,7 @@ Status DestroyQueue(PassengerWaitingQueueNode &Q);
 /* 入队 */
 Status EnQueue(PassengerWaitingQueueNode &Q, ElemType e);
 
+/* 出队 */
+Status DeQueue(PassengerWaitingQueueNode &Q, ElemType &e);
+
 #endif /* ELEVATORSIMULATION_QUEUE_H */
