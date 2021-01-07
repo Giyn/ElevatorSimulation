@@ -14,7 +14,7 @@
 typedef struct PassengerStackNode {
     ElemType *base; /* 栈底指针 */
     ElemType *top; /* 栈顶指针 */
-    int StackSize; /* 当前已分配存储空间, 以元素为单位 */
+    int StackSize; /* 当前已分配的存储空间, 以元素为单位 */
 } PassengerStack;
 
 #endif /* ELEVATORSIMULATION_STACK_H */
