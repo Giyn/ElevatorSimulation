@@ -17,4 +17,7 @@ typedef struct PassengerStackNode {
     int StackSize; /* 当前已分配的存储空间, 以元素为单位 */
 } PassengerStack;
 
+/* 初始化栈 */
+Status InitStack(PassengerStack &S);
+
 #endif /* ELEVATORSIMULATION_STACK_H */
