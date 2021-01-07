@@ -72,4 +72,7 @@ Status TimeUp(Elevator e);
 /* 没有人进入电梯 */
 Status NobodyIn(Elevator e);
 
+/* 没有人离开电梯 */
+Status NobodyOut(Elevator e);
+
 #endif /* ELEVATORSIMULATION_H */
