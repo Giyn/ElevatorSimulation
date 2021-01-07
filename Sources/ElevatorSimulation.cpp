@@ -7,7 +7,7 @@
 
 #include "../Headers/ElevatorSimulation.h"
 
-extern PassengerWaitingQueue FloorWaitQueue[2][5];            //每层楼有俩个等待队列，0向上,1向下
+extern PassengerWaitingQueue FloorWaitQueue[2][5]; /* 每层楼有俩个等待队列, 0向上, 1向下 */
 
 Status TimeUp(Elevator e) {
     if (e->state == IDLE && e->floor == 1) return FAILED;
