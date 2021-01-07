@@ -14,7 +14,7 @@
 using namespace std;
 
 #define STACK_INIT_SIZE 8 /* 存储空间初始分配量 */
-#define STACK_INCREMENT  5 /* 存储空间分配增量 */
+#define STACK_INCREMENT 5 /* 存储空间分配增量 */
 
 /* 乘客结构体类型 */
 typedef struct PassengerNode {
