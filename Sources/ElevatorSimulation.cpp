@@ -125,3 +125,27 @@ int HasUpOrDownRequires(Elevator e) {
 
     return 0;
 }
+
+/**
+ * 电梯向下移动
+ *
+ * @param[in]  e: elevator structure
+ * @return  the operation status, SUCCESS is 1, FAILED is 0
+ */
+Status ElevatorMoveDown(Elevator &e) {
+    int floor = LowerRequires(e);
+    if (floor != -1) {
+        /* 如果请求的是该层电梯, 则直接打开电梯门 */
+        if (e->floor == floor) e->action = Opening;
+        else {
+            e->CallCar[floor] = 1;
+            e->action = Accelerate;
+            /* 响应该层的请求 */
+            CallDown[floor] = -1;
+        }
+
+        return SUCCESS;
+    }
+
+    return FAILED;
+}

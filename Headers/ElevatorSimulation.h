@@ -93,4 +93,7 @@ int LowerRequires(Elevator e);
 /* 返回最近一层的电梯请求 */
 int HasUpOrDownRequires(Elevator e);
 
+/* 电梯向下移动 */
+Status ElevatorMoveDown(Elevator &e);
+
 #endif /* ELEVATORSIMULATION_H */
