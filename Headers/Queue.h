@@ -21,6 +21,9 @@ typedef struct PassengerWaitingQueueNode {
     PassengerQueuePtr front;
     PassengerQueuePtr rear;
     int WaitingPassengerNum;
-} WaitingQueue;
+} PassengerWaitingQueueNode;
+
+/* 初始化队列 */
+Status InitQueue(PassengerWaitingQueueNode &Q);
 
 #endif /* ELEVATORSIMULATION_QUEUE_H */
