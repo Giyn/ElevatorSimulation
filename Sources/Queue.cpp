@@ -11,7 +11,7 @@
  * 初始化队列
  *
  * @param[in]  Q: passenger waiting queue
- * @return  the operation status, SUCCESS is 1, FAILED is 0
+ * @return  the operation status, SUCCESS is 1, FAILED is 0, OVERFLOW is -2
  */
 Status InitQueue(PassengerWaitingQueueNode &Q) {
     Q.front = Q.rear = new PassengerQueueNode;
@@ -37,6 +37,27 @@ Status DestroyQueue(PassengerWaitingQueueNode &Q) {
         delete Q.front;
         Q.front = Q.rear;
     }
+
+    return SUCCESS;
+}
+
+/**
+ * 入队
+ *
+ * @param[in]  Q: passenger waiting queue
+ * @param[in]  e: passenger waiting queue element that to be inserted
+ * @return  the operation status, SUCCESS is 1, FAILED is 0, OVERFLOW is -2
+ */
+Status EnQueue(PassengerWaitingQueueNode &Q, ElemType e) {
+    PassengerQueuePtr p;
+    p = new PassengerQueueNode;
+    if (!p) return OVERFLOW;
+
+    p->data = e;
+    p->next = NULL;
+    Q.rear->next = p;
+    Q.rear = p;
+    Q.WaitingPassengerNum++;
 
     return SUCCESS;
 }
