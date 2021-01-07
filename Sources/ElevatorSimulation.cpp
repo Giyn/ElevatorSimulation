@@ -114,7 +114,7 @@ int LowerRequires(Elevator e) {
  * 有向上或者向下的请求, 返回最近一层的电梯请求
  *
  * @param[in]  e: elevator structure
- * @return  the floor number or -1
+ * @return  the elevator request
  */
 int HasUpOrDownRequires(Elevator e) {
     int i, j;
