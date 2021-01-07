@@ -22,3 +22,18 @@ Status InitStack(PassengerStack &S) {
 
     return SUCCESS;
 }
+
+/**
+ * Ïú»ÙÕ»
+ *
+ * @param[in]  S: passenger stack
+ * @return  the operation status, SUCCESS is 1, FAILED is 0
+ */
+Status DestroyStack(PassengerStack &S) {
+    if (!S.base) return FAILED;
+    else {
+        ElemType *p;
+        for (p = S.base; p < S.top; p++) free(S.base);
+    }
+    return SUCCESS;
+}

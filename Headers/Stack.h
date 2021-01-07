@@ -20,4 +20,7 @@ typedef struct PassengerStackNode {
 /* ≥ı ºªØ’ª */
 Status InitStack(PassengerStack &S);
 
+/* œ˙ªŸ’ª */
+Status DestroyStack(PassengerStack &S);
+
 #endif /* ELEVATORSIMULATION_STACK_H */
