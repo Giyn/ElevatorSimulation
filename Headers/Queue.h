@@ -41,4 +41,7 @@ Status DeQueue(PassengerWaitingQueueNode &Q, ElemType &e);
 /* 删除队列指针p所指结点的下一个结点 */
 Status DeleteNextQueueNode(PassengerWaitingQueueNode &Q, PassengerQueuePtr p);
 
+/* 打印队列 */
+Status PrintQueue(PassengerWaitingQueueNode Q);
+
 #endif /* ELEVATORSIMULATION_QUEUE_H */

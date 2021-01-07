@@ -110,8 +110,34 @@ Status DeleteNextQueueNode(PassengerWaitingQueueNode &Q, PassengerQueuePtr p) {
     PassengerQueuePtr *temp = &Q.rear;
     q = p->next;
     p->next = q->next;
+
     if (!p->next) *(temp) = p;
     Q.WaitingPassengerNum--;
+
+    return SUCCESS;
+}
+
+/**
+ * 打印队列
+ *
+ * @param[in]  Q: passenger waiting queue
+ * @return  the operation status, SUCCESS is 1, FAILED is 0
+ */
+Status PrintQueue(PassengerWaitingQueueNode Q) {
+    int count = 0;
+
+    if (!Q.front->next) goto end; /* 如果队列为空, 跳转到end */
+
+    PassengerQueuePtr q;
+    q = Q.front->next;
+
+    while (q) {
+        cout << setw(3) << q->data->PassengerID << ' ';
+        q = q->next;
+        count++;
+    }
+    end:
+    while (count++ <= 4) cout << "    "; /* 输出空格补全占位, 每次占3个字符位 */
 
     return SUCCESS;
 }
