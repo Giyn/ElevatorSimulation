@@ -42,6 +42,17 @@ Status DestroyQueue(PassengerWaitingQueueNode &Q) {
 }
 
 /**
+ * 判断队列是否为空
+ *
+ * @param[in]  Q: passenger waiting queue
+ * @return  the operation status, SUCCESS is 1, FAILED is 0
+ */
+Status QueueIsEmpty(PassengerWaitingQueueNode Q) {
+    if (Q.front == Q.rear) return SUCCESS;
+    else return FAILED;
+}
+
+/**
  * 入队
  *
  * @param[in]  Q: passenger waiting queue

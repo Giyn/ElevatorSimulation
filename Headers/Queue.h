@@ -29,6 +29,9 @@ Status InitQueue(PassengerWaitingQueueNode &Q);
 /* 销毁队列 */
 Status DestroyQueue(PassengerWaitingQueueNode &Q);
 
+/* 判断队列是否为空 */
+Status QueueIsEmpty(PassengerWaitingQueueNode Q);
+
 /* 入队 */
 Status EnQueue(PassengerWaitingQueueNode &Q, ElemType e);
 
