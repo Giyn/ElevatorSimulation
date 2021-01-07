@@ -17,10 +17,10 @@ typedef struct PassengerQueueNode {
 } *PassengerQueuePtr;
 
 /* 乘客等待队列结构体类型 */
-typedef struct WaitQueueNode {
+typedef struct PassengerWaitingQueueNode {
     PassengerQueuePtr front;
     PassengerQueuePtr rear;
-    int WaitingPassengersNum;
-} WaitQueue;
+    int WaitingPassengerNum;
+} WaitingQueue;
 
 #endif /* ELEVATORSIMULATION_QUEUE_H */
