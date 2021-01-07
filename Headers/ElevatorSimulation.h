@@ -84,4 +84,7 @@ Status NobodyInOrOut(Elevator e);
 /* 是否要在下一层停留 */
 Status StopNextFloor(Elevator e);
 
+/* 高层请求的楼层数 */
+int HigherRequires(Elevator e);
+
 #endif /* ELEVATORSIMULATION_H */
