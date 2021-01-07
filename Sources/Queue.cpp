@@ -95,3 +95,23 @@ Status DeQueue(PassengerWaitingQueueNode &Q, ElemType &e) {
 
     return SUCCESS;
 }
+
+/**
+ * 删除队列指针p所指结点的下一个结点
+ *
+ * @param[in]  Q: passenger waiting queue
+ * @param[in]  p: passenger waiting queue pointer
+ * @return  the operation status, SUCCESS is 1, FAILED is 0
+ */
+Status DeleteNextQueueNode(PassengerWaitingQueueNode &Q, PassengerQueuePtr p) {
+    if (!p || !p->next) return FAILED;
+
+    PassengerQueuePtr q;
+    PassengerQueuePtr *temp = &Q.rear;
+    q = p->next;
+    p->next = q->next;
+    if (!p->next) *(temp) = p;
+    Q.WaitingPassengerNum--;
+
+    return SUCCESS;
+}
