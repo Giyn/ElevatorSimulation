@@ -67,4 +67,6 @@ typedef enum {
     OVERFLOW = -2
 } Status;
 
+Status TimeUp(Elevator e);
+
 #endif /* ELEVATORSIMULATION_H */
