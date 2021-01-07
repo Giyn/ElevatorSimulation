@@ -13,7 +13,7 @@
  * @param[in]  Q: passenger waiting queue
  * @return  the operation status, SUCCESS is 1, FAILED is 0, OVERFLOW is -2
  */
-Status InitQueue(PassengerWaitingQueueNode &Q) {
+Status InitQueue(PassengerWaitingQueue &Q) {
     Q.front = Q.rear = new PassengerQueueNode;
     if (!Q.front) return OVERFLOW;
 
@@ -30,7 +30,7 @@ Status InitQueue(PassengerWaitingQueueNode &Q) {
  * @param[in]  Q: passenger waiting queue
  * @return  the operation status, SUCCESS is 1, FAILED is 0
  */
-Status DestroyQueue(PassengerWaitingQueueNode &Q) {
+Status DestroyQueue(PassengerWaitingQueue &Q) {
     while (Q.front) {
         Q.rear = Q.front->next;
         if (Q.front->data) free(Q.front->data);
@@ -47,7 +47,7 @@ Status DestroyQueue(PassengerWaitingQueueNode &Q) {
  * @param[in]  Q: passenger waiting queue
  * @return  the operation status, SUCCESS is 1, FAILED is 0
  */
-Status QueueIsEmpty(PassengerWaitingQueueNode Q) {
+Status QueueIsEmpty(PassengerWaitingQueue Q) {
     if (Q.front == Q.rear) return SUCCESS;
     else return FAILED;
 }
@@ -59,7 +59,7 @@ Status QueueIsEmpty(PassengerWaitingQueueNode Q) {
  * @param[in]  e: passenger waiting queue element that to be inserted
  * @return  the operation status, SUCCESS is 1, FAILED is 0, OVERFLOW is -2
  */
-Status EnQueue(PassengerWaitingQueueNode &Q, ElemType e) {
+Status EnQueue(PassengerWaitingQueue &Q, ElemType e) {
     PassengerQueuePtr p;
     p = new PassengerQueueNode;
     if (!p) return OVERFLOW;
@@ -80,7 +80,7 @@ Status EnQueue(PassengerWaitingQueueNode &Q, ElemType e) {
  * @param[in]  e: a variable to receive passenger waiting queue element
  * @return  the operation status, SUCCESS is 1, FAILED is 0
  */
-Status DeQueue(PassengerWaitingQueueNode &Q, ElemType &e) {
+Status DeQueue(PassengerWaitingQueue &Q, ElemType &e) {
     if (Q.front == Q.rear) return FAILED;
 
     PassengerQueuePtr p;
@@ -103,7 +103,7 @@ Status DeQueue(PassengerWaitingQueueNode &Q, ElemType &e) {
  * @param[in]  p: passenger waiting queue pointer
  * @return  the operation status, SUCCESS is 1, FAILED is 0
  */
-Status DeleteNextQueueNode(PassengerWaitingQueueNode &Q, PassengerQueuePtr p) {
+Status DeleteNextQueueNode(PassengerWaitingQueue &Q, PassengerQueuePtr p) {
     if (!p || !p->next) return FAILED;
 
     PassengerQueuePtr q;
@@ -123,7 +123,7 @@ Status DeleteNextQueueNode(PassengerWaitingQueueNode &Q, PassengerQueuePtr p) {
  * @param[in]  Q: passenger waiting queue
  * @return  the operation status, SUCCESS is 1, FAILED is 0
  */
-Status PrintQueue(PassengerWaitingQueueNode Q) {
+Status PrintQueue(PassengerWaitingQueue Q) {
     int count = 0;
 
     if (!Q.front->next) goto end; /* 如果队列为空, 跳转到end */

@@ -21,7 +21,7 @@ typedef struct PassengerWaitingQueueNode {
     PassengerQueuePtr front;
     PassengerQueuePtr rear;
     int WaitingPassengerNum;
-} PassengerWaitingQueueNode;
+} PassengerWaitingQueue;
 
 /* 初始化队列 */
 Status InitQueue(PassengerWaitingQueueNode &Q);
