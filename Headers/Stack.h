@@ -29,4 +29,7 @@ Status StackIsEmpty(PassengerStack S);
 /* Ñ¹Õ» */
 Status PushStack(PassengerStack &S, ElemType e);
 
+/* µ¯Õ» */
+Status PopStack(PassengerStack &S, ElemType &e);
+
 #endif /* ELEVATORSIMULATION_STACK_H */

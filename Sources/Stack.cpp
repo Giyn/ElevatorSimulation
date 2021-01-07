@@ -57,7 +57,6 @@ Status StackIsEmpty(PassengerStack S) {
  * @return  the operation status, SUCCESS is 1, FAILED is 0
  */
 Status PushStack(PassengerStack &S, ElemType e) {
-    if (!S.base) return FAILED;
     if (S.top - S.base >= S.StackSize) {
         S.base = (ElemType *) realloc(S.base, (S.StackSize + STACK_INCREMENT) * sizeof(ElemType));
         if (!S.base) return OVERFLOW;
@@ -66,6 +65,21 @@ Status PushStack(PassengerStack &S, ElemType e) {
         S.StackSize += STACK_INCREMENT;
     }
     *S.top++ = e;
+
+    return SUCCESS;
+}
+
+/**
+ * µ¯Õ»
+ *
+ * @param[in]  S: passenger stack
+ * @param[in]  e: a variable to receive passenger stack element
+ * @return  the operation status, SUCCESS is 1, FAILED is 0
+ */
+Status PopStack(PassengerStack &S, ElemType &e) {
+    if (S.top == S.base) return FAILED;
+
+    e = *(--S.top);
 
     return SUCCESS;
 }
