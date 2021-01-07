@@ -8,7 +8,6 @@
 #ifndef ELEVATORSIMULATION_STACK_H
 #define ELEVATORSIMULATION_STACK_H
 
-#include <stdlib.h>
 #include "ElevatorSimulation.h"
 
 /* 乘客栈结构体类型 */
