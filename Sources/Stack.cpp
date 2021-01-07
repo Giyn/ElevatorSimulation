@@ -53,7 +53,7 @@ Status StackIsEmpty(PassengerStack S) {
  * ѹջ
  *
  * @param[in]  S: passenger stack
- * @param[in]  e: passenger stack element
+ * @param[in]  e: passenger stack element that to be pushed
  * @return  the operation status, SUCCESS is 1, FAILED is 0, OVERFLOW is -2
  */
 Status PushStack(PassengerStack &S, ElemType e) {
