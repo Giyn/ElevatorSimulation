@@ -69,4 +69,7 @@ typedef enum {
 
 Status TimeUp(Elevator e);
 
+/* 没有人进入电梯 */
+Status NobodyIn(Elevator e);
+
 #endif /* ELEVATORSIMULATION_H */
