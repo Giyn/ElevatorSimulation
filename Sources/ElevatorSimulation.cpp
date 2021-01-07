@@ -41,3 +41,14 @@ Status NobodyOut(Elevator e) {
     else if (e->state == GoingDown && StackEmpty(e->Stack[e->floor]) == SUCCESS) return SUCCESS;
     else return FAILED;
 }
+
+/**
+ * 没有人进出电梯
+ *
+ * @param[in]  e: elevator structure
+ * @return  the operation status, SUCCESS is 1, FAILED is 0
+ */
+Status NobodyInOrOut(Elevator e) {
+    if (NobodyIn(e) == SUCCESS && NobodyOut(e) == SUCCESS) return SUCCESS;
+    else return FAILED;
+}

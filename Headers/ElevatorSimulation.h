@@ -75,4 +75,7 @@ Status NobodyIn(Elevator e);
 /* 没有人离开电梯 */
 Status NobodyOut(Elevator e);
 
+/* 没有人进出电梯 */
+Status NobodyInOrOut(Elevator e);
+
 #endif /* ELEVATORSIMULATION_H */
