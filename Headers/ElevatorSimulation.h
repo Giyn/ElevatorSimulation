@@ -87,4 +87,7 @@ Status StopNextFloor(Elevator e);
 /* 高层请求的楼层数 */
 int HigherRequires(Elevator e);
 
+/* 低层请求的楼层数 */
+int LowerRequires(Elevator e);
+
 #endif /* ELEVATORSIMULATION_H */

@@ -81,7 +81,7 @@ Status StopNextFloor(Elevator e) {
 }
 
 /**
- * 高层是否有请求, 有返回该楼层, 没有返回-1
+ * 高层是否有请求, 有则返回该楼层, 没有则返回-1
  *
  * @param[in]  e: elevator structure
  * @return  the floor number or -1
@@ -90,6 +90,21 @@ int HigherRequires(Elevator e) {
     int floor;
     for (floor = e->floor; floor <= MaxFloor; floor++) {
         if (CallUp[floor]) return floor;
+    }
+
+    return -1;
+}
+
+/**
+ * 低层是否有请求, 有则返回该楼层, 没有则返回-1
+ *
+ * @param[in]  e: elevator structure
+ * @return  the floor number or -1
+ */
+int LowerRequires(Elevator e) {
+    int floor;
+    for (floor = e->floor; floor >= MinFloor; floor--) {
+        if (CallDown[floor]) return floor;
     }
 
     return -1;
