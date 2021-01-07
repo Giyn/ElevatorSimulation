@@ -9,6 +9,8 @@
 #define ELEVATORSIMULATION_H
 
 #include <stdlib.h>
+#include <iostream>
+#include <iomanip>
 
 /* 使命名空间std内定义的所有标识符都有效 */
 using namespace std;
