@@ -8,6 +8,7 @@
 #ifndef ELEVATORSIMULATION_STACK_H
 #define ELEVATORSIMULATION_STACK_H
 
+#include <stdlib.h>
 #include "ElevatorSimulation.h"
 
 /* 乘客栈结构体类型 */
@@ -22,5 +23,8 @@ Status InitStack(PassengerStack &S);
 
 /* 销毁栈 */
 Status DestroyStack(PassengerStack &S);
+
+/* 判断栈是否为空 */
+Status StackIsEmpty(PassengerStack S);
 
 #endif /* ELEVATORSIMULATION_STACK_H */

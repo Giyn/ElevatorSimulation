@@ -5,7 +5,6 @@
  * @date 2020/12/23
  */
 
-#include <stdlib.h>
 #include "../Headers/Stack.h"
 
 /**
@@ -36,4 +35,15 @@ Status DestroyStack(PassengerStack &S) {
         for (p = S.base; p < S.top; p++) free(S.base);
     }
     return SUCCESS;
+}
+
+/**
+ * ÅÐ¶ÏÕ»ÊÇ·ñÎª¿Õ
+ *
+ * @param[in]  S: passenger stack
+ * @return  the operation status, SUCCESS is 1, FAILED is 0
+ */
+Status StackIsEmpty(PassengerStack S) {
+    if (S.top == S.base) return SUCCESS;
+    else return FAILED;
 }
