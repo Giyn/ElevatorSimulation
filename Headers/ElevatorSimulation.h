@@ -34,9 +34,9 @@ typedef Passenger ElemType;
 enum ElevatorAction {
     Opening,Opened,
     Closing,Closed,
-    Moving,
-    SlowDown,
     Waiting,
+    Moving,
+    Decelerate,
     Accelerate
 };
 
