@@ -1,6 +1,6 @@
 /**
- * @filename Stack.h
- * @description stack structure header file
+ * @filename Stack.cpp
+ * @description stack structure source file
  * @author ะํผฬิช
  * @date 2020/12/23
  */
