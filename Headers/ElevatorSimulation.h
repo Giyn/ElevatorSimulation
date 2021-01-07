@@ -90,4 +90,7 @@ int HigherRequires(Elevator e);
 /* 低层请求的楼层数 */
 int LowerRequires(Elevator e);
 
+/* 返回最近一层的电梯请求 */
+int HasUpOrDownRequires(Elevator e);
+
 #endif /* ELEVATORSIMULATION_H */

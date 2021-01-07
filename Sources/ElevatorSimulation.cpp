@@ -109,3 +109,19 @@ int LowerRequires(Elevator e) {
 
     return -1;
 }
+
+/**
+ * 有向上或者向下的请求, 返回最近一层的电梯请求
+ *
+ * @param[in]  e: elevator structure
+ * @return  the floor number or -1
+ */
+int HasUpOrDownRequires(Elevator e) {
+    int i, j;
+    for (j = e->floor - 1, i = e->floor + 1; j >= 0 || i <= MaxFloor; j--, i++) {
+        if (j >= 0 && (CallDown[j] == 1 || CallUp[j] == 1)) return j;
+        if (i <= MaxFloor && (CallDown[i] == 1 || CallUp[i] == 1)) return i;
+    }
+
+    return 0;
+}
