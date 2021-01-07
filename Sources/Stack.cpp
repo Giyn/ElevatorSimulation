@@ -11,7 +11,7 @@
  * ³õÊ¼»¯Õ»
  *
  * @param[in]  S: passenger stack
- * @return  the operation status, SUCCESS is 1, FAILED is 0
+ * @return  the operation status, SUCCESS is 1, FAILED is 0, OVERFLOW is -2
  */
 Status InitStack(PassengerStack &S) {
     S.base = (ElemType *) malloc(STACK_INIT_SIZE * sizeof(ElemType));
@@ -54,7 +54,7 @@ Status StackIsEmpty(PassengerStack S) {
  *
  * @param[in]  S: passenger stack
  * @param[in]  e: passenger stack element
- * @return  the operation status, SUCCESS is 1, FAILED is 0
+ * @return  the operation status, SUCCESS is 1, FAILED is 0, OVERFLOW is -2
  */
 Status PushStack(PassengerStack &S, ElemType e) {
     if (S.top - S.base >= S.StackSize) {
