@@ -26,4 +26,7 @@ typedef struct PassengerWaitingQueueNode {
 /* 初始化队列 */
 Status InitQueue(PassengerWaitingQueueNode &Q);
 
+/* 销毁队列 */
+Status DestroyQueue(PassengerWaitingQueueNode &Q);
+
 #endif /* ELEVATORSIMULATION_QUEUE_H */

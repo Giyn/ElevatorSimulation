@@ -23,3 +23,20 @@ Status InitQueue(PassengerWaitingQueueNode &Q) {
 
     return SUCCESS;
 }
+
+/**
+ * Ïú»Ù¶ÓÁÐ
+ *
+ * @param[in]  Q: passenger waiting queue
+ * @return  the operation status, SUCCESS is 1, FAILED is 0
+ */
+Status DestroyQueue(PassengerWaitingQueueNode &Q) {
+    while (Q.front) {
+        Q.rear = Q.front->next;
+        if (Q.front->data) free(Q.front->data);
+        delete Q.front;
+        Q.front = Q.rear;
+    }
+
+    return SUCCESS;
+}
