@@ -11,6 +11,8 @@
 #include <stdlib.h>
 #include <iostream>
 #include <iomanip>
+#include "Queue.h"
+#include "Stack.h"
 
 /* 使命名空间std内定义的所有标识符都有效 */
 using namespace std;
@@ -27,6 +29,35 @@ typedef struct PassengerNode {
 } *Passenger;
 
 typedef Passenger ElemType;
+
+/* 电梯的8种动作 */
+enum ElevatorAction {
+    Opening,Opened,
+    Closing,Closed,
+    Moving,
+    SlowDown,
+    Waiting,
+    Accelerate
+};
+
+/* 电梯运行状态 */
+enum ElevatorState {
+    GoingUp,
+    GoingDown,
+    IDLE
+};
+
+/* 电梯结构体类型 */
+typedef struct ElevatorNode {
+    int PassengerNum;        /* 乘客数量 */
+    int PassengerID[8];      /* 存储电梯内的乘客编号 */
+    int StateTimeCount;      /* 当前状态的计时 */
+    int floor;               /* 当前所在的楼层 */
+    int CallCar[5];          /* 目标楼层数据 */
+    PassengerStack Stack[5]; /* 乘客栈结构 */
+    ElevatorState state;     /* 电梯状态 */
+    ElevatorAction action;   /* 当前电梯的动作 */
+} *Elevator;
 
 /* 操作状态码 */
 typedef enum {
