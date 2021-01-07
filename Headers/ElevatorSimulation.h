@@ -20,6 +20,9 @@ using namespace std;
 #define STACK_INIT_SIZE 8 /* 存储空间初始分配量 */
 #define STACK_INCREMENT 5 /* 存储空间分配增量 */
 
+#define MaxFloor 4 /* 最高层 */
+#define MinFloor 0 /* 最低层 */
+
 /* 乘客结构体类型 */
 typedef struct PassengerNode {
     int PassengerID; /* 乘客ID */
@@ -77,5 +80,8 @@ Status NobodyOut(Elevator e);
 
 /* 没有人进出电梯 */
 Status NobodyInOrOut(Elevator e);
+
+/* 是否要在下一层停留 */
+Status StopNextFloor(Elevator e);
 
 #endif /* ELEVATORSIMULATION_H */
