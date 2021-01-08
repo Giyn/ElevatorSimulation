@@ -7,7 +7,8 @@
 
 #include "../Headers/Passenger.h"
 
-extern int MaxPassengerNum; /* 电梯的最大乘客数 */
+extern int MaxPassengerNum;                        /* 电梯的最大乘客数 */
+extern PassengerWaitingQueue FloorWaitQueue[2][5]; /* 每层楼有2个等待队列, 0向上, 1向下 */
 
 /**
  * 乘客出电梯
@@ -37,4 +38,54 @@ Status PassengerOut(Elevator &e, int k) {
 
         return SUCCESS;
     } else return FAILED;
+}
+
+/**
+ * 乘客入电梯
+ *
+ * @param[in]  e: elevator structure
+ * @param[in]  k:
+ * @return  none
+ */
+Status PassengerIn(Elevator &e, int k) {
+    Passenger p;
+    if (e->PassengerNum >= 8) return FAILED;
+    switch (e->state) {
+        /* 如果该电梯向下, 则只接收向下的乘客 */
+        case GoingDown:
+            if (FloorWaitQueue[1][e->floor].WaitingPassengerNum) {
+                if (DeQueue(FloorWaitQueue[1][e->floor], p) == SUCCESS) {
+                    if (Push(e->Stack[p->OutFloor], p) == SUCCESS) {
+                        e->CallCar[p->OutFloor] = 1;
+                        e->PassengerID[e->PassengerNum++] = p->PassengerID;
+
+                        GotoXY(10 + 30 * k, 6);
+                        printf("                         ");
+                        GotoXY(10 + 30 * k, 6);
+                        printf(" %d号乘客成功进入电梯%d", p->PassengerID, k + 1);
+                    } else printf(" %d号乘客进入电梯%d失败", p->PassengerID, k + 1);
+                }
+            } else return FAILED;
+            break;
+        case GoingUp:
+            /* 如果该电梯向上, 则只接收向上的乘客 */
+            if (FloorWaitQueue[0][e->floor].WaitingPassengerNum) {
+                if (DeQueue(FloorWaitQueue[0][e->floor], p) == SUCCESS) {
+                    if (Push(e->Stack[p->OutFloor], p) == SUCCESS) {
+                        e->CallCar[p->OutFloor] = 1;
+                        e->PassengerID[e->PassengerNum++] = p->PassengerID;
+
+                        GotoXY(10 + 30 * k, 6);
+                        printf("                         ");
+                        GotoXY(10 + 30 * k, 6);
+                        printf(" %d号乘客成功进入电梯%d", p->PassengerID, k + 1);
+                    } else printf(" %d号乘客进入电梯%d失败", p->PassengerID, k + 1);
+                } else return FAILED;
+            } else return FAILED;
+            break;
+        case IDLE:
+            break;
+    }
+
+    return SUCCESS;
 }

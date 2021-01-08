@@ -13,4 +13,7 @@
 /* 乘客出电梯 */
 Status PassengerOut(Elevator &e, int k);
 
+/* 乘客入电梯 */
+Status PassengerIn(Elevator &e, int k);
+
 #endif /* ELEVATORSIMULATION_PASSENGER_H */
