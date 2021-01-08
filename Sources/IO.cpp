@@ -22,8 +22,9 @@ void GotoXY(short x, short y) {
 /**
  * 清除电梯结构
  *
- * @param[in]  x: x coordinate
- * @param[in]  y: y coordinate
+ * @param[in]  e: elevator structure
+ * @param[in]  k:
+ * @param[in]  x:
  * @return  none
  */
 void DisappearElevatorBody(Elevator e, int k, int x) {
