@@ -15,7 +15,7 @@ extern PassengerWaitingQueue FloorWaitQueue[2][5]; /* 每层楼有2个等待队列, 0向上
  *
  * @param[in]  e: elevator structure
  * @param[in]  k:
- * @return  none
+ * @return  the operation status, SUCCESS is 1, FAILED is 0
  */
 Status PassengerOut(Elevator &e, int k) {
     Passenger p;
@@ -45,7 +45,7 @@ Status PassengerOut(Elevator &e, int k) {
  *
  * @param[in]  e: elevator structure
  * @param[in]  k:
- * @return  none
+ * @return  the operation status, SUCCESS is 1, FAILED is 0
  */
 Status PassengerIn(Elevator &e, int k) {
     Passenger p;
@@ -95,7 +95,7 @@ Status PassengerIn(Elevator &e, int k) {
  *
  * @param[in]  e: elevator structure
  * @param[in]  k:
- * @return  none
+ * @return  the operation status, SUCCESS is 1, FAILED is 0
  */
 Status PassengerInOrOut(Elevator e, int k) {
     if (PassengerOut(e, k) == FAILED) {
@@ -107,6 +107,41 @@ Status PassengerInOrOut(Elevator e, int k) {
         ShowWaitingPassenger(FloorWaitQueue[1][e->floor], 0, 0);
         ShowWaitingPassenger(FloorWaitQueue[0][e->floor], 1, FloorWaitQueue[1][e->floor].WaitingPassengerNum);
     }
+
+    return SUCCESS;
+}
+
+/**
+ * 乘客是否放弃搭乘电梯
+ *
+ * @param[in]  Q    : passenger waiting queue
+ * @param[in]  flag : 0 - passengers in this queue will go down
+ *                    1 - passengers in this queue will go up
+ * @param[in]  floor: current floor
+ * @return  the operation status, SUCCESS is 1, FAILED is 0
+ */
+Status PassengerGiveUp(PassengerWaitingQueue &Q, Elevator E[], int floor) {
+    Passenger node;
+    PassengerQueuePtr p = Q.front;
+
+    if (Q.WaitingPassengerNum <= 0) return FAILED;
+    else if (Q.front->next) node = Q.front->next->data;
+    else return FAILED;
+
+    /* 如果忍耐时间到了并且该层没有电梯 */
+    if (node && node->GiveUpTime <= 0 && E[0]->floor != floor && E[1]->floor != floor) {
+        GotoXY(10 + 30, 6);
+        printf("                         ");
+        GotoXY(10 + 30, 6);
+        printf(" %d号乘客放弃搭乘电梯\n", node->PassengerID);
+
+        /* 乘客放弃搭乘电梯, 则更新当前正在等待的乘客 */
+        DisappearWaitingPassenger(FloorWaitQueue[1][floor], 0, 0);
+        DisappearWaitingPassenger(FloorWaitQueue[0][floor], 1, FloorWaitQueue[1][floor].WaitingPassengerNum);
+        DeleteNextQueueNode(Q, p);
+        ShowWaitingPassenger(FloorWaitQueue[1][floor], 0, 0);
+        ShowWaitingPassenger(FloorWaitQueue[0][floor], 1, FloorWaitQueue[1][floor].WaitingPassengerNum);
+    } else node->GiveUpTime--;
 
     return SUCCESS;
 }
