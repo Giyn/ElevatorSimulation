@@ -89,3 +89,24 @@ Status PassengerIn(Elevator &e, int k) {
 
     return SUCCESS;
 }
+
+/**
+ * 乘客入或出电梯
+ *
+ * @param[in]  e: elevator structure
+ * @param[in]  k:
+ * @return  none
+ */
+Status PassengerInOrOut(Elevator e, int k) {
+    if (PassengerOut(e, k) == FAILED) {
+        if (PassengerIn(e, k) == FAILED) return FAILED;
+
+        /* 有乘客进入电梯, 重新显示等待队列 */
+        DisappearWaitingPassenger(FloorWaitQueue[1][e->floor], 0, 0);
+        DisappearWaitingPassenger(FloorWaitQueue[0][e->floor], 1, FloorWaitQueue[1][e->floor].WaitingPassengerNum);
+        ShowWaitingPassenger(FloorWaitQueue[1][e->floor], 0, 0);
+        ShowWaitingPassenger(FloorWaitQueue[0][e->floor], 1, FloorWaitQueue[1][e->floor].WaitingPassengerNum);
+    }
+
+    return SUCCESS;
+}
