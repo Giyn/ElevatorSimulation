@@ -11,6 +11,8 @@
 #include <stdlib.h>
 #include <iostream>
 #include <iomanip>
+#include <windows.h>
+
 #include "Queue.h"
 #include "Stack.h"
 
@@ -20,8 +22,8 @@ using namespace std;
 #define STACK_INIT_SIZE 8 /* 存储空间初始分配量 */
 #define STACK_INCREMENT 5 /* 存储空间分配增量 */
 
-#define MaxFloor 4 /* 最高层 */
-#define MinFloor 0 /* 最低层 */
+#define MaxFloor 4        /* 最高层 */
+#define MinFloor 0        /* 最低层 */
 
 /* 乘客结构体类型 */
 typedef struct PassengerNode {
@@ -35,8 +37,8 @@ typedef Passenger ElemType;
 
 /* 电梯的8种动作 */
 enum ElevatorAction {
-    Opening,Opened,
-    Closing,Closed,
+    Opening, Opened,
+    Closing, Closed,
     Waiting,
     Moving,
     Decelerate,
