@@ -187,3 +187,18 @@ void ShowWaitingPassenger(PassengerWaitingQueue Q, int flag, int num) {
         j++;
     }
 }
+
+/**
+ * 清除等待队列的乘客
+ *
+ * @param[in]  Q   : passenger waiting queue
+ * @param[in]  flag: 0 - passengers in this queue will go down
+ *                   1 - passengers in this queue will go up
+ * @param[in]  num : the number of passengers in another queue in the same floor
+ * @return  none
+ */
+void DisappearWaitingPassenger(PassengerWaitingQueue Q, int flag, int num) {
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 0);
+    ShowWaitingPassenger(Q, flag, num);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+}
