@@ -8,7 +8,7 @@
 #ifndef ELEVATORSIMULATION_H
 #define ELEVATORSIMULATION_H
 
-#include <stdlib.h>
+#include <cstdlib>
 #include <iostream>
 #include <iomanip>
 #include <windows.h>
