@@ -16,6 +16,7 @@
 #include "Queue.h"
 #include "Stack.h"
 #include "IO.h"
+#include "Passenger.h"
 
 /* 使命名空间std内定义的所有标识符都有效 */
 using namespace std;
@@ -123,5 +124,8 @@ void ChangeElevatorAction(Elevator e, int k);
 
 /* 对电梯进行调度 */
 void Controller(Elevator E[]);
+
+/* 检测乘客是否放弃搭乘电梯 */
+void CheckGiveUp(Elevator E[]);
 
 #endif /* ELEVATORSIMULATION_H */

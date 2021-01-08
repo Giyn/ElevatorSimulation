@@ -363,3 +363,16 @@ void Controller(Elevator E[]) {
         }
     }
 }
+
+/**
+ * ¼ì²â³Ë¿ÍÊÇ·ñ·ÅÆú´î³ËµçÌÝ
+ *
+ * @param[in]  E: elevator structure array
+ * @return  none
+ */
+void CheckGiveUp(Elevator E[]) {
+    for (int i = 0; i < 5; i++) {
+        PassengerGiveUp(FloorWaitQueue[0][i], E, i);
+        PassengerGiveUp(FloorWaitQueue[1][i], E, i);
+    }
+}
