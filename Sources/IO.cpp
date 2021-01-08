@@ -46,7 +46,7 @@ void Print(string content, WORD color) {
  * @return  none
  */
 void PrintLine(string content, WORD color) {
-    if (0 == color) cout << content << endl;
+    if (color == 0) cout << content << endl;
     else {
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | color);
         cout << content << endl;
@@ -110,7 +110,7 @@ void ShowTitle() {
     GotoXY(28, 10);
     PrintLine("**                                                         **", FOREGROUND_GREEN);
     GotoXY(28, 11);
-    PrintLine("**                    计算机科学与技术1班                      **", FOREGROUND_GREEN);
+    PrintLine("**                    计算机科学与技术1班                  **", FOREGROUND_GREEN);
     GotoXY(28, 12);
     PrintLine("**                    3119004757                           **", FOREGROUND_GREEN);
     GotoXY(28, 13);
@@ -178,7 +178,7 @@ void ShowWaitingPassenger(PassengerWaitingQueue Q, int flag, int num) {
     p = Q.front->next;
     int j = num;
     while (p) {
-        gotoxy(RightElevatorX + 26 + j * 6, RightElevatorY - 1 + (4 - p->data->InFloor) * FloorHeight);
+        GotoXY(RightElevatorX + 26 + j * 6, RightElevatorY - 1 + (4 - p->data->InFloor) * FloorHeight);
         printf(" %d", p->data->PassengerID);
         if (flag) printf("↑");
         else printf("↓");

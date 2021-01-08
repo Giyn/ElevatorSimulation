@@ -6,6 +6,9 @@
  */
 
 #include "../Headers/Passenger.h"
+#include "../Headers/Stack.h"
+#include "../Headers/Queue.h"
+#include "../Headers/IO.h"
 
 extern int MaxPassengerNum;                        /* 电梯的最大乘客数 */
 extern int TotalPassenger;                         /* 总乘客数 */
@@ -24,8 +27,8 @@ Status PassengerOut(Elevator &e, int k) {
     Passenger p;
     int i, j;
     /* 乘客出栈, 每出去一个乘客需要等待25t */
-    if (StackEmpty(e->Stack[e->floor]) != SUCCESS) {
-        Pop(e->Stack[e->floor], p);
+    if (StackIsEmpty(e->Stack[e->floor]) != SUCCESS) {
+        PopStack(e->Stack[e->floor], p);
         for (i = 0; i < MaxPassengerNum; i++) {
             if (e->PassengerID[i] == p->PassengerID) break;
         }
@@ -58,7 +61,7 @@ Status PassengerIn(Elevator &e, int k) {
         case GoingDown:
             if (FloorWaitQueue[1][e->floor].WaitingPassengerNum) {
                 if (DeQueue(FloorWaitQueue[1][e->floor], p) == SUCCESS) {
-                    if (Push(e->Stack[p->OutFloor], p) == SUCCESS) {
+                    if (PushStack(e->Stack[p->OutFloor], p) == SUCCESS) {
                         e->CallCar[p->OutFloor] = 1;
                         e->PassengerID[e->PassengerNum++] = p->PassengerID;
 
@@ -74,7 +77,7 @@ Status PassengerIn(Elevator &e, int k) {
             /* 如果该电梯向上, 则只接收向上的乘客 */
             if (FloorWaitQueue[0][e->floor].WaitingPassengerNum) {
                 if (DeQueue(FloorWaitQueue[0][e->floor], p) == SUCCESS) {
-                    if (Push(e->Stack[p->OutFloor], p) == SUCCESS) {
+                    if (PushStack(e->Stack[p->OutFloor], p) == SUCCESS) {
                         e->CallCar[p->OutFloor] = 1;
                         e->PassengerID[e->PassengerNum++] = p->PassengerID;
 

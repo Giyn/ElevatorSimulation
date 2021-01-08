@@ -6,6 +6,8 @@
  */
 
 #include "./Headers/ElevatorSimulation.h"
+#include "./Headers/Passenger.h"
+#include "./Headers/IO.h"
 
 int MaxPassengerNum = 7;                    /* 最大乘客人数 */
 int MaxRunTime;                             /* 最大运行时间 */
@@ -74,7 +76,7 @@ int main() {
         Sleep(80);
     }
     GotoXY(45, 30);
-    
+
     printf("电梯模拟结束, 感谢您的使用!");
     _getch();
 }

@@ -6,6 +6,10 @@
  */
 
 #include "../Headers/ElevatorSimulation.h"
+#include "../Headers/Passenger.h"
+#include "../Headers/Stack.h"
+#include "../Headers/Queue.h"
+#include "../Headers/IO.h"
 
 extern int CallUp[5], CallDown[5];                 /* 楼层的向上向下按钮 */
 extern int MaxPassengerNum;                        /* 电梯的最大乘客数 */
@@ -45,8 +49,8 @@ Status NobodyIn(Elevator e) {
 Status NobodyOut(Elevator e) {
     /* 没有乘客坐该楼层的电梯 */
     if (!e->CallCar[e->floor]) return SUCCESS;
-    else if (e->state == GoingUp && StackEmpty(e->Stack[e->floor]) == SUCCESS) return SUCCESS;
-    else if (e->state == GoingDown && StackEmpty(e->Stack[e->floor]) == SUCCESS) return SUCCESS;
+    else if (e->state == GoingUp && StackIsEmpty(e->Stack[e->floor]) == SUCCESS) return SUCCESS;
+    else if (e->state == GoingDown && StackIsEmpty(e->Stack[e->floor]) == SUCCESS) return SUCCESS;
     else return FAILED;
 }
 
