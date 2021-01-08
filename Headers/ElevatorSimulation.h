@@ -22,6 +22,14 @@ using namespace std;
 #define STACK_INIT_SIZE 8 /* 存储空间初始分配量 */
 #define STACK_INCREMENT 5 /* 存储空间分配增量 */
 
+#define CloseTestTime  40  /* 电梯关门测试时间, 有人进出时, 电梯每隔40t测试一次, 若无人进出, 则关门 */
+#define AccelerateTime 15  /* 加速时间 */
+#define UpTime         51  /* 上升时间 */
+#define DownTime       61  /* 下降时间 */
+#define UpSlowTime     14  /* 上升减速 */
+#define DownSlowTime   23  /* 下降减速 */
+#define DoorTime       20  /* 开门关门时间, 关门和开门各需要20t */
+
 #define MaxFloor 4        /* 最高层 */
 #define MinFloor 0        /* 最低层 */
 #define FloorHeight 3     /* 楼层高度 */
