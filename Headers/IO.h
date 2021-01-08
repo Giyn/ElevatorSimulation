@@ -8,7 +8,7 @@
 #ifndef ELEVATORSIMULATION_IO_H
 #define ELEVATORSIMULATION_IO_H
 
-#include "ElevatorSimulation.h"
+#include "ElevatorSimulationDefinition.h"
 
 /* 定位控制台的光标位置 */
 void GotoXY(short x, short y);

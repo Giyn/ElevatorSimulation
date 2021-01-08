@@ -8,7 +8,7 @@
 #ifndef ELEVATORSIMULATION_PASSENGER_H
 #define ELEVATORSIMULATION_PASSENGER_H
 
-#include "ElevatorSimulation.h"
+#include "ElevatorSimulationDefinition.h"
 
 /* 乘客出电梯 */
 Status PassengerOut(Elevator &e, int k);
