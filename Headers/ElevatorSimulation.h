@@ -114,4 +114,7 @@ Status ElevatorMoveUp(Elevator &e);
 /* 电梯向下移动 */
 Status ElevatorMoveDown(Elevator &e);
 
+/* 改变电梯的动作 */
+void ChangeElevatorAction(Elevator e, int k);
+
 #endif /* ELEVATORSIMULATION_H */
