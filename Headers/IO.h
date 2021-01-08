@@ -31,4 +31,7 @@ void ShowTitle();
 /* 打印电梯框架 */
 void PrintElevatorFrame();
 
+/* 显示等待队列的乘客 */
+void ShowWaitingPassenger(PassengerWaitingQueue Q, int flag, int num);
+
 #endif /* ELEVATORSIMULATION_IO_H */

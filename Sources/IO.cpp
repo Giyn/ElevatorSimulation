@@ -162,3 +162,28 @@ void PrintElevatorFrame() {
     GotoXY(0, 6);
     Print("乘客行为:", FOREGROUND_GREEN);
 }
+
+/**
+ * 显示等待队列的乘客
+ *
+ * @param[in]  Q   : passenger waiting queue
+ * @param[in]  flag: 0 - passengers in this queue will go down
+ *                   1 - passengers in this queue will go up
+ * @param[in]  num : the number of passengers in another queue in the same floor
+ *                   (The display must be after it, otherwise it will overwrite the data of the previous queue.)
+ * @return  none
+ */
+void ShowWaitingPassenger(PassengerWaitingQueue Q, int flag, int num) {
+    PassengerQueueNode *p;
+    p = Q.front->next;
+    int j = num;
+    while (p) {
+        gotoxy(RightElevatorX + 26 + j * 6, RightElevatorY - 1 + (4 - p->data->InFloor) * FloorHeight);
+        printf(" %d", p->data->PassengerID);
+        if (flag) printf("↑");
+        else printf("↓");
+        printf("%d", p->data->OutFloor);
+        p = p->next;
+        j++;
+    }
+}
