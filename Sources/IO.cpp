@@ -37,6 +37,23 @@ void Print(string content, WORD color) {
 }
 
 /**
+ * 打印字符串内容并换行
+ *
+ * @param[in]  content: elevator structure
+ * @param[in]  color  : word color
+ * @return  none
+ */
+void PrintLine(string content, WORD color) {
+    if (0 == color) cout << content << endl;
+    else {
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | color);
+        cout << content << endl;
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),
+                                FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+    }
+}
+
+/**
  * 清除电梯结构
  *
  * @param[in]  e: elevator structure
