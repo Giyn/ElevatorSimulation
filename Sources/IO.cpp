@@ -35,3 +35,20 @@ void DisappearElevatorBody(Elevator e, int k, int x) {
     }
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 }
+
+/**
+ * ´òÓ¡×Ö·û´®ÄÚÈÝ
+ *
+ * @param[in]  content: elevator structure
+ * @param[in]  color  : word color
+ * @return  none
+ */
+void Print(string content, WORD color) {
+    if (color == 0) cout << content;
+    else {
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | color);
+        cout << content;
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),
+                                FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+    }
+}
