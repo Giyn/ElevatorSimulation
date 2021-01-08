@@ -25,4 +25,7 @@ void DisappearElevatorBody(Elevator e, int k, int x);
 /* 显示电梯结构 */
 void ShowElevatorBody(Elevator e, int k, int x);
 
+/* 显示电梯模拟程序主题 */
+void ShowTitle();
+
 #endif /* ELEVATORSIMULATION_IO_H */
