@@ -295,3 +295,66 @@ void ChangeElevatorAction(Elevator e, int k) {
             break;
     }
 }
+
+/**
+ * 通过锁的机制, 对电梯进行调度, 避免浪费资源
+ *
+ * @param[in]  E: elevator structure array
+ * @return  none
+ */
+void Controller(Elevator E[]) {
+    for (int i = 0; i <= 2; i++) {
+        /* 如果i号电梯位于等待状态 */
+        if (E[i]->action == Waiting) {
+            /* 计算最近的上下电梯的花费 */
+            int floor;
+            /* 如果在本层有乘客, 直接开门 */
+            if (CallUp[E[i]->floor] == 1) {
+                E[i]->action = Opening;
+                CallUp[E[i]->floor] = -1;
+                E[i]->state = GoingUp;
+            } else if (CallDown[E[0]->floor] == 1) {
+                E[i]->action = Opening;
+                CallDown[E[i]->floor] = -1;
+                E[i]->state = GoingDown;
+            }
+                /* 否则找到最近的请求楼层 */
+            else {
+                floor = HasUpOrDownRequires(E[i]);
+                /* 没有乘客响应 */
+                if (floor < 0 || floor > MaxFloor) return;
+                else if (1 == CallUp[floor]) {
+                    /* 电梯向上运动 */
+                    if (floor >= E[i]->floor) {
+                        E[i]->action = Accelerate;
+                        E[i]->CallCar[floor] = 1;
+                        /* 设置楼层响应标志 */
+                        CallUp[floor] = -1;
+                        E[i]->state = GoingUp;
+                    } else {
+                        E[i]->action = Accelerate;
+                        E[i]->CallCar[floor] = 1;
+                        /* 设置楼层响应标志 */
+                        CallUp[floor] = -1;
+                        E[i]->state = GoingDown;
+                    }
+                } else if (CallDown[floor] == 1) {
+                    /* 电梯向上运动 */
+                    if (floor >= E[i]->floor) {
+                        E[i]->action = Accelerate;
+                        E[i]->CallCar[floor] = 1;
+                        /* 设置楼层响应标志 */
+                        CallDown[floor] = -1;
+                        E[i]->state = GoingUp;
+                    } else {
+                        E[i]->action = Accelerate;
+                        E[i]->CallCar[floor] = 1;
+                        /* 设置楼层响应标志 */
+                        CallDown[floor] = -1;
+                        E[i]->state = GoingDown;
+                    }
+                }
+            }
+        }
+    }
+}

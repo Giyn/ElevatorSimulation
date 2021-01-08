@@ -117,4 +117,7 @@ Status ElevatorMoveDown(Elevator &e);
 /* 改变电梯的动作 */
 void ChangeElevatorAction(Elevator e, int k);
 
+/* 对电梯进行调度 */
+void Controller(Elevator E[]);
+
 #endif /* ELEVATORSIMULATION_H */
