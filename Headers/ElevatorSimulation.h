@@ -85,6 +85,7 @@ typedef enum {
     OVERFLOW = -2
 } Status;
 
+/* 计时 */
 Status TimeUp(Elevator e);
 
 /* 没有人进入电梯 */

@@ -9,9 +9,15 @@
 #include "../Headers/IO.h"
 
 extern int CallUp[5], CallDown[5];                 /* 楼层的向上向下按钮 */
-extern int MaxPassengerNum;
+extern int MaxPassengerNum;                        /* 电梯的最大乘客数 */
 extern PassengerWaitingQueue FloorWaitQueue[2][5]; /* 每层楼有俩个等待队列, 0向上, 1向下 */
 
+/**
+ * 计时
+ *
+ * @param[in]  e: elevator structure
+ * @return  the operation status, SUCCESS is 1, FAILED is 0
+ */
 Status TimeUp(Elevator e) {
     if (e->state == IDLE && e->floor == 1) return FAILED;
     else if (e->StateTimeCount <= 0) return SUCCESS;
