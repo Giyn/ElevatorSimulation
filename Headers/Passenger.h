@@ -22,4 +22,7 @@ Status PassengerInOrOut(Elevator e, int k);
 /* 乘客是否放弃搭乘电梯 */
 Status PassengerGiveUp(PassengerWaitingQueue &Q, Elevator E[], int floor);
 
+/* 生成一个新的乘客 */
+void NewPassenger();
+
 #endif /* ELEVATORSIMULATION_PASSENGER_H */
