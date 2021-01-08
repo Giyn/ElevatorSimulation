@@ -28,4 +28,7 @@ void ShowElevatorBody(Elevator e, int k, int x);
 /* 显示电梯模拟程序主题 */
 void ShowTitle();
 
+/* 打印电梯框架 */
+void PrintElevatorFrame();
+
 #endif /* ELEVATORSIMULATION_IO_H */

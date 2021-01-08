@@ -131,3 +131,34 @@ void ShowTitle() {
         while (getchar() != '\n') continue;
     }
 }
+
+/**
+ * 打印电梯框架
+ *
+ * @param[in]  none
+ * @return  none
+ */
+void PrintElevatorFrame() {
+    int j, i, k;
+    for (i = 0; i <= 2; i++) {
+        for (j = MaxFloor + 1; j >= 0; j--) {
+            if (j == MaxFloor) {
+                GotoXY(6 + i * 27, 9);
+                Print("***************************", FOREGROUND_GREEN);
+            }
+            GotoXY(6 + i * 27, 9 + j * FloorHeight);
+            Print("***************************", FOREGROUND_GREEN);
+        }
+        j = MaxFloor + 1;
+        for (k = 9; k <= 9 + j * FloorHeight; k++) {
+            GotoXY(5 + i * 27, k);
+            Print("|", FOREGROUND_GREEN);
+            GotoXY(5 + i * 27 + 26, k);
+            Print("|", FOREGROUND_GREEN);
+        }
+    }
+    GotoXY(0, 4);
+    Print("电梯信息:", FOREGROUND_GREEN);
+    GotoXY(0, 6);
+    Print("乘客行为:", FOREGROUND_GREEN);
+}
