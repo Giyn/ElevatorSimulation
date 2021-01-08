@@ -31,9 +31,9 @@ using namespace std;
 #define DownSlowTime   23  /* 下降减速 */
 #define DoorTime       20  /* 开门关门时间, 关门和开门各需要20t */
 
-#define MaxFloor 4        /* 最高层 */
-#define MinFloor 0        /* 最低层 */
-#define FloorHeight 3     /* 楼层高度 */
+#define MaxFloor       4  /* 最高层 */
+#define MinFloor       0  /* 最低层 */
+#define FloorHeight    3  /* 楼层高度 */
 #define LeftElevatorX  6  /* 左边电梯的x起始坐标 */
 #define LeftElevatorY  12 /* 左边电梯的y起始坐标 */
 #define RightElevatorX 62 /* 右边电梯的x起始坐标 */
