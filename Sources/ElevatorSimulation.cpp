@@ -9,7 +9,7 @@
 
 extern int CallUp[5], CallDown[5];                 /* 楼层的向上向下按钮 */
 extern int MaxPassengerNum;                        /* 电梯的最大乘客数 */
-extern PassengerWaitingQueue FloorWaitQueue[2][5]; /* 每层楼有俩个等待队列, 0向上, 1向下 */
+extern PassengerWaitingQueue FloorWaitQueue[2][5]; /* 每层楼有2个等待队列, 0向上, 1向下 */
 
 /**
  * 判断该动作的时间周期是否到了
