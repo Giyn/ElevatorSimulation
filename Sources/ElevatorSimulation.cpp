@@ -376,3 +376,40 @@ void CheckGiveUp(Elevator E[]) {
         PassengerGiveUp(FloorWaitQueue[1][i], E, i);
     }
 }
+
+/**
+ * 初始化电梯
+ *
+ * @param[in]  E  : elevator structure pointer
+ * @param[in]  num: the number of the elevator
+ * @return  none
+ */
+void InitElevator(Elevator *E, int num) {
+    /* 初始化等待队列操作 */
+    for (int i = 0; i < 5; i++) {
+        InitQueue(FloorWaitQueue[0][i]);
+        InitQueue(FloorWaitQueue[1][i]);
+    }
+
+    /* 初始化3台电梯 */
+    for (int i = 0; i < num; i++) {
+        E[i] = (Elevator) malloc(sizeof(ElevatorNode));
+        E[i]->PassengerNum = 0;
+        E[i]->floor = 1; /* 初始楼层为1楼 */
+        E[i]->state = IDLE;
+        E[i]->StateTimeCount = 0;
+        E[i]->action = Waiting;
+        for (int j = 0; j < 5; j++) {
+            E[i]->CallCar[j] = 0; /* 目标楼层初始化为0 */
+            InitStack(E[i]->Stack[j]); /* 初始化电梯的乘客栈 */
+        }
+        /* 初始化乘客ID数组 */
+        for (int j = 0; j <= 8; j++) E[i]->PassengerID[j] = 0;
+    }
+
+    /* 初始化3个电梯按钮数组 */
+    for (int i = 0; i < 5; i++) {
+        CallUp[i] = 0;
+        CallDown[i] = 0;
+    }
+}

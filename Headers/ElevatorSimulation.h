@@ -128,4 +128,7 @@ void Controller(Elevator E[]);
 /* 检测乘客是否放弃搭乘电梯 */
 void CheckGiveUp(Elevator E[]);
 
+/* 初始化电梯 */
+void InitElevator(Elevator *E, int num);
+
 #endif /* ELEVATORSIMULATION_H */
