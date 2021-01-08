@@ -202,3 +202,42 @@ void DisappearWaitingPassenger(PassengerWaitingQueue Q, int flag, int num) {
     ShowWaitingPassenger(Q, flag, num);
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 }
+
+/**
+ * 打印电梯的运行状态
+ *
+ * @param[in]  e: elevator structure
+ * @param[in]  k:
+ * @return  none
+ */
+void PrintfElevatorAction(Elevator e, int k) {
+    GotoXY(10 + 30 * k, 4);
+    printf("                         ");
+    GotoXY(10 + 30 * k, 4);
+    switch (e->action) {
+        case Opening:
+            printf(" %d号电梯 门正在打开", k + 1);
+            break;
+        case Opened:
+            printf(" %d号电梯 门已经打开", k + 1);
+            break;
+        case Closing:
+            printf(" %d号电梯 门正在关闭", k + 1);
+            break;
+        case Closed:
+            printf(" %d号电梯 门已经关闭", k + 1);
+            break;
+        case Moving:
+            printf(" %d号电梯 正在移动", k + 1);
+            break;
+        case Decelerate:
+            printf(" %d号电梯 正在减速", k + 1);
+            break;
+        case Accelerate:
+            printf(" %d号电梯 正在加速", k + 1);
+            break;
+        case Waiting:
+            printf(" %d号电梯 正在等待", k + 1);
+            break;
+    }
+}
