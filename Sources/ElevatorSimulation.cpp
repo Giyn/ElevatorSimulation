@@ -6,7 +6,6 @@
  */
 
 #include "../Headers/ElevatorSimulation.h"
-#include "../Headers/IO.h"
 
 extern int CallUp[5], CallDown[5];                 /* 楼层的向上向下按钮 */
 extern int MaxPassengerNum;                        /* 电梯的最大乘客数 */
