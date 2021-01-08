@@ -20,6 +20,23 @@ void GotoXY(short x, short y) {
 }
 
 /**
+ * 打印字符串内容
+ *
+ * @param[in]  content: elevator structure
+ * @param[in]  color  : word color
+ * @return  none
+ */
+void Print(string content, WORD color) {
+    if (color == 0) cout << content;
+    else {
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | color);
+        cout << content;
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),
+                                FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+    }
+}
+
+/**
  * 清除电梯结构
  *
  * @param[in]  e: elevator structure
@@ -37,18 +54,19 @@ void DisappearElevatorBody(Elevator e, int k, int x) {
 }
 
 /**
- * 打印字符串内容
+ * 显示电梯结构
  *
- * @param[in]  content: elevator structure
- * @param[in]  color  : word color
+ * @param[in]  e: elevator structure
+ * @param[in]  k:
+ * @param[in]  x:
  * @return  none
  */
-void Print(string content, WORD color) {
-    if (color == 0) cout << content;
-    else {
-        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | color);
-        cout << content;
-        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),
-                                FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+void ShowElevatorBody(Elevator e, int k, int x) {
+    GotoXY(LeftElevatorX + k * 27, LeftElevatorY - 1 + (4 - x) * FloorHeight);
+    Print("[", FOREGROUND_RED);
+    for (int i = 0; i < e->PassengerNum; i++) {
+        if (e->PassengerID[i] != 0) printf(" %d", e->PassengerID[i]);
     }
+    GotoXY(LeftElevatorX + k * 26 + 24, LeftElevatorY - 1 + (4 - x) * FloorHeight);
+    Print("]", FOREGROUND_RED);
 }

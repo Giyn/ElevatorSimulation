@@ -13,10 +13,13 @@
 /* 定位控制台的光标位置 */
 void GotoXY(short x, short y);
 
+/* 打印字符串内容 */
+void Print(string content, WORD color);
+
 /* 清除电梯结构 */
 void DisappearElevatorBody(Elevator e, int k, int x);
 
-/* 打印字符串内容 */
-void Print(string content, WORD color);
+/* 显示电梯结构 */
+void ShowElevatorBody(Elevator e, int k, int x);
 
 #endif /* ELEVATORSIMULATION_IO_H */
