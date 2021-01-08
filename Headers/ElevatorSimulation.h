@@ -12,6 +12,9 @@
 #include <iostream>
 #include <iomanip>
 #include <windows.h>
+#include <conio.h>
+#include <ctime>
+#include <cstdio>
 
 #include "Queue.h"
 #include "Stack.h"
@@ -33,6 +36,8 @@ using namespace std;
 #define DoorTime       20  /* 开门关门时间, 关门和开门各需要20t */
 #define MaxGiveUpTime  300 /* 乘客最长忍耐时间 */
 #define MaxInterTime   100 /* 下一个乘客最长的出现时间 */
+#define InOutTime      25  /* 进出电梯时间, 每个人进出电梯均需要25t */
+#define OverTime       300 /* 电梯停候超时时间, 如果电梯在某层静止时间超过300t, 则返回1层候命 */
 
 #define MaxFloor       4  /* 最高层 */
 #define MinFloor       0  /* 最低层 */
