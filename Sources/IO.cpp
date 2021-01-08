@@ -204,7 +204,7 @@ void DisappearWaitingPassenger(PassengerWaitingQueue Q, int flag, int num) {
 }
 
 /**
- * 打印电梯的运行状态
+ * 打印电梯的运行动作
  *
  * @param[in]  e: elevator structure
  * @param[in]  k:

@@ -37,7 +37,7 @@ void ShowWaitingPassenger(PassengerWaitingQueue Q, int flag, int num);
 /* 清除等待队列的乘客 */
 void DisappearWaitingPassenger(PassengerWaitingQueue Q, int flag, int num);
 
-/* 打印电梯的运行状态 */
+/* 打印电梯的运行动作 */
 void PrintfElevatorAction(Elevator e, int k);
 
 #endif /* ELEVATORSIMULATION_IO_H */
