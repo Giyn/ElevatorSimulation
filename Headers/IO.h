@@ -40,4 +40,7 @@ void DisappearWaitingPassenger(PassengerWaitingQueue Q, int flag, int num);
 /* 打印电梯的运行动作 */
 void PrintfElevatorAction(Elevator e, int k);
 
+/* 检测用户整数输入 */
+int InputInteger();
+
 #endif /* ELEVATORSIMULATION_IO_H */
