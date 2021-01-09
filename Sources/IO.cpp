@@ -102,19 +102,19 @@ void ShowTitle() {
     GotoXY(28, 6);
     PrintLine("**                                                         **", FOREGROUND_GREEN);
     GotoXY(28, 7);
-    PrintLine("**                        电梯模拟                         **", FOREGROUND_GREEN);
-    GotoXY(28, 8);
     PrintLine("**                                                         **", FOREGROUND_GREEN);
+    GotoXY(28, 8);
+    PrintLine("**                        电梯模拟                         **", FOREGROUND_GREEN);
     GotoXY(28, 9);
     PrintLine("**                                                         **", FOREGROUND_GREEN);
     GotoXY(28, 10);
-    PrintLine("**                                                         **", FOREGROUND_GREEN);
+    PrintLine("**                     开发者: 许继元                      **", FOREGROUND_GREEN);
     GotoXY(28, 11);
-    PrintLine("**                    计算机科学与技术1班                  **", FOREGROUND_GREEN);
+    PrintLine("**                    学号: 3119004757                     **", FOREGROUND_GREEN);
     GotoXY(28, 12);
-    PrintLine("**                    3119004757                           **", FOREGROUND_GREEN);
+    PrintLine("**               班级: 计算机科学与技术(1)班               **", FOREGROUND_GREEN);
     GotoXY(28, 13);
-    PrintLine("**                    许继元                               **", FOREGROUND_GREEN);
+    PrintLine("**               联系邮箱: giyn.jy@gmail.com               **", FOREGROUND_GREEN);
     GotoXY(28, 14);
     PrintLine("**                                                         **", FOREGROUND_GREEN);
     GotoXY(28, 15);
@@ -122,12 +122,12 @@ void ShowTitle() {
     GotoXY(28, 16);
     PrintLine("*************************************************************", FOREGROUND_GREEN);
     GotoXY(32, 17);
-    Print("请输入电梯系统的运行时间（500=<x<=10000）:", FOREGROUND_GREEN);
+    Print("请输入电梯系统的运行时间(500≤x≤10000):", FOREGROUND_GREEN);
     while (scanf("%d", &MaxRunTime) != 1 || MaxRunTime < 500 || MaxRunTime > 10000) {
         GotoXY(32, 17);
         printf("                                                                                ");
         GotoXY(32, 17);
-        Print("输入有误，重新输入（500=<x<=10000）:", FOREGROUND_GREEN);
+        Print("输入有误, 重新输入(500≤x≤10000):", FOREGROUND_GREEN);
         while (getchar() != '\n') continue;
     }
 }
