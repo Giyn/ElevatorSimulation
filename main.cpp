@@ -26,13 +26,13 @@ int main() {
 
     while (TRUE) {
         ShowTitle();
-        GotoXY(32, 17);
+        GotoXY(34, 17);
         Print("请输入电梯模拟系统的运行时间(500≤x≤10000):", FOREGROUND_GREEN);
         MaxRunTime = InputInteger();
         if (MaxRunTime < 500 || MaxRunTime > 10000) {
-            GotoXY(32, 17);
+            GotoXY(34, 17);
             printf("                                                                                ");
-            GotoXY(32, 17);
+            GotoXY(38, 17);
             Print("输入错误, 请重新输入500到10000之间的整数!\n", FOREGROUND_GREEN);
             system("pause");
             system("cls");
