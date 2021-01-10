@@ -121,17 +121,6 @@ void ShowTitle() {
     PrintLine("**                                                         **", FOREGROUND_GREEN);
     GotoXY(28, 16);
     PrintLine("*************************************************************", FOREGROUND_GREEN);
-    GotoXY(32, 17);
-    Print("请输入电梯系统的运行时间(500≤x≤10000):", FOREGROUND_GREEN);
-    MaxRunTime = InputInteger();
-    while (MaxRunTime < 500 || MaxRunTime > 10000) {
-        GotoXY(32, 17);
-        printf("                                                                                ");
-        GotoXY(32, 17);
-        Print("输入有误, 重新输入(500≤x≤10000):", FOREGROUND_GREEN);
-        MaxRunTime = InputInteger();
-        while (getchar() != '\n') continue;
-    }
 }
 
 /**
@@ -271,9 +260,8 @@ int InputInteger()
                 if (str[i] < '0' || str[i] > '9') status = FAILED;
             }
         }
-        if (status == FAILED) {
-            return -1;
-        } else {
+        if (status == FAILED) return -1;
+        else {
             /* Convert string to number */
             for (i = 0, integer = 0; str[i] != '\0'; i++) {
                 if (i == 0) {
