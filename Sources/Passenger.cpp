@@ -39,7 +39,7 @@ Status PassengerOut(Elevator &e, int k) {
         GotoXY(10 + 30 * k, 6);
         printf("                         ");
         GotoXY(10 + 30 * k, 6);
-        printf(" %d乘客出电梯 %d", p->PassengerID, k + 1);
+        printf(" %d号乘客出电梯 %d", p->PassengerID, k + 1);
         free(p);
 
         return SUCCESS;
