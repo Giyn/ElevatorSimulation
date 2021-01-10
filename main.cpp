@@ -36,8 +36,7 @@ int main() {
             Print("输入错误, 请重新输入500到10000之间的整数!\n", FOREGROUND_GREEN);
             system("pause");
             system("cls");
-        }
-        else break;
+        } else break;
     }
     system("cls");
 

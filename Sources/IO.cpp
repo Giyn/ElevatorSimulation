@@ -239,8 +239,7 @@ void PrintfElevatorAction(Elevator e, int k) {
  * @param[in]  none
  * @return  legal integer
  */
-int InputInteger()
-{
+int InputInteger() {
     /* store converted numbers */
     int integer = 0;
     /* flag status */
