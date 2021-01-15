@@ -25,7 +25,7 @@ Status TimeUp(Elevator e) {
     if (e->state == IDLE && e->floor == 1) return FAILED;
     else if (e->StateTimeCount <= 0) return SUCCESS;
 
-    return SUCCESS;
+    return FAILED;
 }
 
 /**
